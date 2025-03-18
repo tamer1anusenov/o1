@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Doctor Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doctor-schedule.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="doctor-home.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="doctor-home.html"><span class="icon">📅</span>Сегодня</a></li>
+                    <li class="active"><a href="doctor-schedule.html"><span class="icon">📋</span>Расписание</a></li>
+                    <li><a href="doctor.html"><span class="icon">👨‍⚕️</span>Найти пациента</a></li>
+                    <li><a href="profile.html"><span class="icon">👤</span>Профиль</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Расписание приемов</h1>
+                <div class="week-navigation">
+                    <button id="prevWeek" class="nav-btn">←</button>
+                    <span id="currentWeek" class="current-week"></span>
+                    <button id="nextWeek" class="nav-btn">→</button>
+                </div>
+            </header>
+
+            <div class="schedule-container">
+                <!-- Week View -->
+                <div class="week-view" id="weekView">
+                    <!-- Days will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Appointment Details Modal -->
+            <div id="appointmentModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Детали приема</h2>
+                        <button class="close-btn">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Пациент</label>
+                            <input type="text" id="patientName" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Дата и время</label>
+                            <input type="text" id="appointmentTime" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Тип приема</label>
+                            <input type="text" id="appointmentType" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Статус</label>
+                            <select id="appointmentStatus">
+                                <option value="upcoming">Ожидается</option>
+                                <option value="in-progress">В процессе</option>
+                                <option value="completed">Завершен</option>
+                                <option value="cancelled">Отменен</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Заметки</label>
+                            <textarea id="appointmentNotes" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="secondary-btn" id="cancelBtn">Отмена</button>
+                        <button class="primary-btn" id="saveBtn">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/doctor-schedule.js"></script>
+</body>
+</html> 

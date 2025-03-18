@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Book Appointment</title>
+    <link rel="stylesheet" href="apointment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><span class="icon">🏠</span>Home</a></li>
+                    <li class="active"><a href="apointment.html"><span class="icon">👨‍⚕️</span>Doctors</a></li>
+                    <li><a href="consultation.html"><span class="icon">🩺</span>Консультация</a></li>
+                    <li><a href="analyzes.html"><span class="icon">🏥</span>Анализы</a></li>
+                    <li><a href="profile.html"><span class="icon">👨‍⚕️</span>Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Choose Your Doctor <span id="doctor-count">0</span></h1>
+                <a href="profile.html" class="profile-link">
+                    <div class="profile-button">
+                        <span class="profile-icon">👨‍⚕️</span>
+                        <span class="profile-text">My Profile</span>
+                    </div>
+                </a>
+            </header>
+
+            <!-- Doctor List Section -->
+            <section class="doctor-list" id="doctor-list">
+                <!-- Doctor cards will be inserted dynamically via JavaScript -->
+            </section>
+
+            <!-- Appointment Modal -->
+            <div class="modal" id="appointmentModal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="modal-header">
+                        <img id="selectedDoctorImg" src="" alt="Doctor">
+                        <div class="doctor-details">
+                            <h2 id="selectedDoctorName"></h2>
+                            <p id="selectedDoctorSpecialty"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="time-slots" id="timeSlots">
+                        <h3>Select Date & Time</h3>
+                        <div class="date-picker">
+                            <input type="text" id="datePicker" placeholder="Select Date" readonly>
+                        </div>
+                        <div class="slots-grid" id="slotsGrid">
+                            <!-- Time slots will be inserted here -->
+                        </div>
+                    </div>
+
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="firstName" required>
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="lastName" required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" id="phone" required>
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" required>
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="notes" rows="3"></textarea>
+                            <label for="notes">Additional Notes</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Success Modal -->
+            <div class="modal" id="successModal">
+                <div class="modal-content success">
+                    <span class="close-modal">&times;</span>
+                    <div class="success-icon">✓</div>
+                    <h2>Appointment Confirmed!</h2>
+                    <div class="confirmation-details">
+                        <!-- Will be filled dynamically -->
+                    </div>
+                    <button class="ok-btn">OK</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="apointment.js"></script>
+</body>
+</html>

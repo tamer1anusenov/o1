@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doctor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="doctor-home.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="doctor-home.html"><span class="icon">📅</span>Сегодня</a></li>
+                    <li><a href="doctor-schedule.html"><span class="icon">📋</span>Расписание</a></li>
+                    <li class="active"><a href="doctor.html"><span class="icon">👨‍⚕️</span>Найти пациента</a></li>
+                    <li><a href="profile.html"><span class="icon">👤</span>Профиль</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Карта пациента</h1>
+            </header>
+
+            <div class="patient-container">
+                <!-- IIN Search Section -->
+                <section class="search-section">
+                    <div class="search-box">
+                        <input type="text" id="iinInput" maxlength="12" placeholder="Введите ИИН пациента">
+                        <button id="searchBtn">Поиск</button>
+                    </div>
+                </section>
+
+                <!-- Patient Form -->
+                <form id="patientForm" class="patient-form">
+                    <!-- Personal Information -->
+                    <section class="form-section">
+                        <h2>Личные данные</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="lastName">Фамилия</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="firstName">Имя</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="birthDate">Дата рождения</label>
+                                <input type="date" id="birthDate" name="birthDate" required>
+                                <span class="age-display" id="ageDisplay"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Пол</label>
+                                <div class="gender-buttons">
+                                    <button type="button" class="gender-btn" data-gender="male">Мужской</button>
+                                    <button type="button" class="gender-btn" data-gender="female">Женский</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Medical Information -->
+                    <section class="form-section">
+                        <h2>Медицинские данные</h2>
+                        <div class="form-group">
+                            <label for="diagnosis">Диагноз</label>
+                            <input type="text" id="diagnosis" name="diagnosis" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Результаты анализов</label>
+                            <div class="analysis-grid">
+                                <div class="analysis-item">
+                                    <label for="hemoglobin">Гемоглобин (г/л)</label>
+                                    <input type="number" id="hemoglobin" name="hemoglobin" step="0.1">
+                                </div>
+                                <div class="analysis-item">
+                                    <label for="glucose">Сахар крови (ммоль/л)</label>
+                                    <input type="number" id="glucose" name="glucose" step="0.1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complaints">Жалобы пациента</label>
+                            <textarea id="complaints" name="complaints" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="treatment">Назначенное лечение</label>
+                            <textarea id="treatment" name="treatment" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="doctorNotes">Комментарии врача</label>
+                            <textarea id="doctorNotes" name="doctorNotes" rows="3"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Action Buttons -->
+                    <section class="form-actions">
+                        <button type="submit" class="primary-btn">💾 Сохранить запись</button>
+                        <button type="button" class="secondary-btn" id="clearBtn">🗑️ Очистить форму</button>
+                        <button type="button" class="secondary-btn" id="historyBtn">📋 История анализов</button>
+                    </section>
+                </form>
+
+                <!-- Loading State -->
+                <div id="loadingState" class="loading-state" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Поиск пациента...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/doctor.js"></script>
+</body>
+</html> 

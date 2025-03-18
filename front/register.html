@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+
+            <div class="role-selector">
+                <div class="role-option active" data-role="patient">Patient</div>
+                <div class="role-option" data-role="doctor">Doctor</div>
+            </div>
+
+            <form class="login-form" action="/register" method="post">
+                <!-- Hidden role field -->
+                <input type="hidden" id="role" name="role" value="patient">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="firstName" name="firstName" required placeholder=" ">
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" name="lastName" required placeholder=" ">
+                        <label for="lastName">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder=" ">
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" required placeholder=" ">
+                    <label for="phone">Phone Number</label>
+                </div>
+
+                <!-- Doctor fields -->
+                <div class="form-group doctor-field" style="display: none;">
+                    <input type="text" id="doctorId" name="doctorId" placeholder=" ">
+                    <label for="doctorId">Doctor's ID</label>
+                </div>
+
+                <div class="form-group doctor-field" style="display: none;">
+                    <select id="specialization" name="specialization">
+                        <option value="" disabled selected></option>
+                        <option value="general">General Practitioner</option>
+                        <option value="cardiology">Cardiologist</option>
+                        <option value="dermatology">Dermatologist</option>
+                        <option value="neurology">Neurologist</option>
+                        <option value="pediatrics">Pediatrician</option>
+                        <option value="psychiatry">Psychiatrist</option>
+                        <option value="surgery">Surgeon</option>
+                        <option value="orthopedics">Orthopedist</option>
+                        <option value="gynecology">Gynecologist</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <label for="specialization">Specialization</label>
+                </div>
+
+                <div class="form-group doctor-field" style="display: none;">
+                    <input type="number" id="experience" name="experience" min="0" max="60" placeholder=" ">
+                    <label for="experience">Years of Experience</label>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required placeholder=" ">
+                        <label for="dateOfBirth">Date of Birth</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required placeholder=" ">
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder=" ">
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+
+                <div class="form-group agreement">
+                    <label class="remember-me">
+                        <input type="checkbox" name="agreement" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="login-btn">Register</button>
+
+                <div class="register-link">
+                    Already have an account? <a href="login.html">Login here</a>
+                </div>
+            </form>
+        </div>
+        <div class="illustration-container">
+            <img src="images/log.svg" alt="Medical Illustration" class="medical-illustration">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.role-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.role-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Set the role value in the hidden field
+                document.getElementById('role').value = option.getAttribute('data-role');
+                
+                // Toggle doctor's fields visibility
+                const doctorFields = document.querySelectorAll('.doctor-field');
+                const isDoctor = option.getAttribute('data-role') === 'doctor';
+                
+                doctorFields.forEach(field => {
+                    field.style.display = isDoctor ? 'block' : 'none';
+                    const inputs = field.querySelectorAll('input, select');
+                    inputs.forEach(input => {
+                        input.required = isDoctor;
+                    });
+                });
+            });
+        });
+
+        // Form validation
+        document.querySelector('.login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // If passwords match, submit the form
+            this.submit();
+        });
+
+        // Real-time password validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (password !== confirmPassword) {
+                this.setCustomValidity('Passwords do not match');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Doctor Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doctor-profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="doctor-home.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="doctor-home.html"><span class="icon">📅</span>Сегодня</a></li>
+                    <li><a href="doctor-schedule.html"><span class="icon">📋</span>Расписание</a></li>
+                    <li><a href="doctor.html"><span class="icon">👨‍⚕️</span>Найти пациента</a></li>
+                    <li class="active"><a href="doctor-profile.html"><span class="icon">👤</span>Профиль</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Профиль врача</h1>
+            </header>
+
+            <div class="profile-container">
+                <!-- Personal Information -->
+                <section class="form-section">
+                    <h2>Личные данные</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastName">Фамилия</label>
+                            <input type="text" id="lastName" name="lastName" value="Иванов" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Имя</label>
+                            <input type="text" id="firstName" name="firstName" value="Александр" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">Отчество</label>
+                            <input type="text" id="middleName" name="middleName" value="Петрович">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialization">Специализация</label>
+                            <input type="text" id="specialization" name="specialization" value="Терапевт" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Стаж работы (лет)</label>
+                            <input type="number" id="experience" name="experience" value="15" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Information -->
+                <section class="form-section">
+                    <h2>Контактные данные</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" value="+7 (777) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="doctor@keremet.kz" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Schedule Settings -->
+                <section class="form-section">
+                    <h2>Настройки расписания</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="workDays">Рабочие дни</label>
+                            <div class="days-selector">
+                                <button type="button" class="day-btn active">Пн</button>
+                                <button type="button" class="day-btn active">Вт</button>
+                                <button type="button" class="day-btn active">Ср</button>
+                                <button type="button" class="day-btn active">Чт</button>
+                                <button type="button" class="day-btn active">Пт</button>
+                                <button type="button" class="day-btn">Сб</button>
+                                <button type="button" class="day-btn">Вс</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="workHoursStart">Начало работы</label>
+                            <input type="time" id="workHoursStart" name="workHoursStart" value="09:00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="workHoursEnd">Конец работы</label>
+                            <input type="time" id="workHoursEnd" name="workHoursEnd" value="18:00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDuration">Длительность приема (мин)</label>
+                            <input type="number" id="appointmentDuration" name="appointmentDuration" value="30" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Action Buttons -->
+                <section class="form-actions">
+                    <button type="button" class="secondary-btn" id="resetBtn">🔄 Отменить изменения</button>
+                    <button type="submit" class="primary-btn" id="saveBtn">💾 Сохранить изменения</button>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/doctor-profile.js"></script>
+</body>
+</html> 

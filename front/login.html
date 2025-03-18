@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+
+            <div class="role-selector">
+                <div class="role-option active" data-role="patient">Patient</div>
+                <div class="role-option" data-role="doctor">Doctor</div>
+            </div>
+
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" required>
+                    <label for="username">Email or number</label>
+                </div>
+
+                <!-- Doctor ID field - hidden by default -->
+                <div class="form-group doctor-field" style="display: none;">
+                    <input type="text" id="doctorId" name="doctorId">
+                    <label for="doctorId">Doctor's ID</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="form-footer">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-btn" onclick="window.location.href='index.html'">Login</button>
+
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Register now</a>
+                </div>
+            </form>
+        </div>
+        <div class="illustration-container">
+            <img src="images/log.svg" alt="Medical Illustration" class="medical-illustration">
+        </div>
+    </div>
+
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const roleOptions = document.querySelectorAll(".role-option");
+    const doctorField = document.querySelector(".doctor-field");
+
+    roleOptions.forEach(option => {
+        option.addEventListener("click", () => {
+            // Remove active class from all options
+            roleOptions.forEach(opt => opt.classList.remove("active"));
+
+            // Add active class to the clicked option
+            option.classList.add("active");
+
+            // Show or hide the doctor's ID field based on selection
+            if (option.getAttribute("data-role") === "doctor") {
+                doctorField.style.display = "block";
+            } else {
+                doctorField.style.display = "none";
+            }
+        });
+    });
+});
+</script>
+</body>
+</html> 

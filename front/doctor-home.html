@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Doctor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doctor-home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="doctor-home.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="doctor-home.html"><span class="icon">📅</span>Сегодня</a></li>
+                    <li><a href="doctor-schedule.html"><span class="icon">📋</span>Расписание</a></li>
+                    <li><a href="doctor.html"><span class="icon">👨‍⚕️</span>Найти пациента</a></li>
+                    <li><a href="profile.html"><span class="icon">👤</span>Профиль</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Сегодняшние приемы</h1>
+                <div class="date-display">
+                    <span class="current-date" id="currentDate"></span>
+                </div>
+            </header>
+
+            <div class="dashboard-container">
+                <!-- Quick Stats -->
+                <section class="quick-stats">
+                    <div class="stat-card">
+                        <span class="stat-icon">👥</span>
+                        <div class="stat-info">
+                            <h3>Пациентов сегодня</h3>
+                            <span class="stat-number" id="todayPatients">8</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">⏰</span>
+                        <div class="stat-info">
+                            <h3>Следующий прием</h3>
+                            <span class="stat-time" id="nextAppointment">14:30</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Today's Schedule -->
+                <section class="today-schedule">
+                    <div class="schedule-header">
+                        <h2>Расписание на сегодня</h2>
+                    </div>
+                    
+                    <div class="appointments-list" id="appointmentsList">
+                        <!-- Appointment items will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/doctor-home.js"></script>
+</body>
+</html> 

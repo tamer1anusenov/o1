@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keremet - Consultation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consultation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/whitelogo.png" alt="Keremet Logo">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><span class="icon">🏠</span>Home</a></li>
+                    <li><a href="apointment.html"><span class="icon">👨‍⚕️</span>Doctors</a></li>
+                    <li class="active"><a href="consultation.html"><span class="icon">🩺</span>Консультация</a></li>
+                    <li><a href="analyzes.html"><span class="icon">🏥</span>Анализы</a></li>
+                    <li><a href="profile.html"><span class="icon">👨‍⚕️</span>Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Consultation Services</h1>
+                <a href="profile.html" class="profile-link">
+                    <div class="profile-button">
+                        <span class="profile-icon">👨‍⚕️</span>
+                        <span class="profile-text">My Profile</span>
+                    </div>
+                </a>
+            </header>
+
+            <!-- Consultation Types -->
+            <section class="consultation-types">
+                <div class="type-card online">
+                    <div class="type-icon">💻</div>
+                    <h3>Online Consultation</h3>
+                    <p>Connect with doctors remotely via video call</p>
+                    <ul class="features-list">
+                        <li>No travel required</li>
+                        <li>Flexible scheduling</li>
+                        <li>Instant digital prescriptions</li>
+                        <li>Lower consultation fees</li>
+                    </ul>
+                    <button class="select-btn" data-type="online">Select Online</button>
+                </div>
+
+                <div class="type-card in-person">
+                    <div class="type-icon">🏥</div>
+                    <h3>In-Person Visit</h3>
+                    <p>Visit the clinic for a personal consultation</p>
+                    <ul class="features-list">
+                        <li>Physical examination</li>
+                        <li>Direct interaction</li>
+                        <li>Immediate procedures</li>
+                        <li>Complex case handling</li>
+                    </ul>
+                    <button class="select-btn" data-type="in-person">Select In-Person</button>
+                </div>
+            </section>
+
+            <!-- Specialization Selection -->
+            <section class="specialization-section">
+                <h2>Choose Specialization</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search specialization..." id="specialization-search">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="specializations-grid">
+                    <div class="specialization-card" data-specialty="therapist">
+                        <span class="specialty-icon">👨‍⚕️</span>
+                        <h3>Therapist</h3>
+                        <p>General health consultation</p>
+                    </div>
+                    <div class="specialization-card" data-specialty="cardiologist">
+                        <span class="specialty-icon">❤️</span>
+                        <h3>Cardiologist</h3>
+                        <p>Heart and circulation</p>
+                    </div>
+                    <div class="specialization-card" data-specialty="dermatologist">
+                        <span class="specialty-icon">🔬</span>
+                        <h3>Dermatologist</h3>
+                        <p>Skin conditions</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Doctors Section -->
+            <section class="doctors-section" style="display: none;">
+                <h2>Available Doctors</h2>
+                <div class="doctors-grid">
+                    <!-- Doctors will be loaded dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Doctor Appointment Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <div class="doctor-info">
+                <img src="" alt="Doctor's photo" class="doctor-photo">
+                <div class="doctor-details">
+                    <h2 class="doctor-name"></h2>
+                    <p class="doctor-specialty"></p>
+                </div>
+            </div>
+
+            <h3>Select Date & Time</h3>
+            <div class="date-picker">
+                <input type="text" id="consultation-date" placeholder="Select Date">
+            </div>
+
+            <div class="form-row">
+                <input type="text" id="first-name" placeholder="First Name">
+                <input type="text" id="last-name" placeholder="Last Name">
+            </div>
+
+            <div class="form-row">
+                <input type="tel" id="phone-number" placeholder="Phone Number">
+                <input type="email" id="email" placeholder="Email">
+            </div>
+
+            <textarea id="additional-notes" placeholder="Additional Notes"></textarea>
+
+            <button class="book-appointment">Book Appointment</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/consultation.js"></script>
+</body>
+</html> 
