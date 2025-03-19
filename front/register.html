@@ -22,7 +22,7 @@
                 <div class="role-option" data-role="doctor">Doctor</div>
             </div>
 
-            <form class="login-form" action="/register" method="post">
+            <form class="login-form" id="registrationForm">
                 <!-- Hidden role field -->
                 <input type="hidden" id="role" name="role" value="patient">
 
@@ -94,7 +94,7 @@
 
                 <div class="form-group agreement">
                     <label class="remember-me">
-                        <input type="checkbox" name="agreement" required>
+                        <input type="checkbox" name="agreement">
                         <span class="checkmark"></span>
                         I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
                     </label>
@@ -111,6 +111,14 @@
             <img src="images/log.svg" alt="Medical Illustration" class="medical-illustration">
         </div>
     </div>
+<!-- In register.html -->
+<script src="register-script.js"></script>
+
+<!-- In login.html -->
+<script src="login-script.js"></script>
+
+<!-- In dashboard/profile pages -->
+<script src="api-utils.js"></script>
 
     <script>
         document.querySelectorAll('.role-option').forEach(option => {
@@ -166,3 +174,15 @@
     </script>
 </body>
 </html> 
+
+<!-- working {
+  "email": "patient@example.com",
+  "username": "patient1",
+  "first_name": "John",
+  "last_name": "Doe",
+  "phone_number": "+1234567890",
+  "date_of_birth": "1990-01-01",
+  "role": "patient",
+  "password": "securepassword123",
+  "confirm_password": "securepassword123"
+} -->

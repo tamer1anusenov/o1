@@ -5,11 +5,22 @@ from app.models import user
 from app.schemas.user import UserCreate, User
 from passlib.context import CryptContext
 from datetime import datetime
+from fastapi.middleware.cors import CORSMiddleware
 
 # Create database tables
 user.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Healthcare System API")
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -71,4 +82,4 @@ def register_user(user_data: UserCreate, db: Session = Depends(get_db)):
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to Healthcare System API"}
+    return {"message": "Welcome to Healthcare System APIiiiiiiiiiiiiiiiiiiiiii"}

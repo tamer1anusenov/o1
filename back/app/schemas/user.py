@@ -62,15 +62,13 @@ class UserCreate(UserBase):
             raise ValueError('Password must be at least 8 characters long')
         return v
 
-@validator('doctor_profile')
-def validate_doctor_profile(cls, v, values):
-    print("Validator - Role:", values.get("role"))
-    print("Validator - Doctor Profile:", v)
-    if 'role' in values and values['role'] == 'doctor' and not v:
-        raise ValueError('Doctor profile is required for doctor role')
-    if 'role' in values and values['role'] == 'patient' and v:
-        raise ValueError('Doctor profile should not be provided for patient role')
-    return v
+    @validator('doctor_profile')
+    def validate_doctor_profile(cls, v, values):
+        if 'role' in values and values['role'] == 'doctor' and not v:
+            raise ValueError('Doctor profile is required for doctor role')
+        if 'role' in values and values['role'] == 'patient' and v:
+            raise ValueError('Doctor profile should not be provided for patient role')
+        return v
 
     # @validator('doctor_profile')
     # def validate_doctor_profile(cls, v, values):
